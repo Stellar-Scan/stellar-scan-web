@@ -1,2 +1,8 @@
 import { defineConfig } from 'vitest/config';
-export default defineConfig({ test: { environment: 'jsdom' } });
+import path from 'node:path';
+
+export default defineConfig({
+  root: path.resolve(import.meta.dirname),
+  test: { environment: 'node' },
+  css: false,
+});

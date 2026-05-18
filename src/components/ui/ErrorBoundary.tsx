@@ -1,8 +1,10 @@
 'use client';
 import { Component, type ReactNode } from 'react';
 
-export class ErrorBoundary extends Component<{ children: ReactNode }, { error?: Error }> {
-  state = {};
+type ErrorBoundaryState = { error?: Error };
+
+export class ErrorBoundary extends Component<{ children: ReactNode }, ErrorBoundaryState> {
+  state: ErrorBoundaryState = {};
   static getDerivedStateFromError(error: Error) {
     return { error };
   }
